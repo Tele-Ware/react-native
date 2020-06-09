@@ -84,11 +84,7 @@ class Linking extends NativeEventEmitter {
    * See https://facebook.github.io/react-native/docs/linking.html#getinitialurl
    */
   getInitialURL(): Promise<?string> {
-    return Platform.OS === 'android'
-      ? InteractionManager.runAfterInteractions().then(() =>
-          NativeLinking.getInitialURL(),
-        )
-      : NativeLinking.getInitialURL();
+    return NativeLinking.getInitialURL();
   }
 
   /*
